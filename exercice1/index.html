@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Exercice 1</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <select>
+      <option value="1">Rock</option>
+      <option value="2">Paper</option>
+      <option value="3">Cisor</option>
+    </select>
+    <input type="button" value="Shifumi" id="button">
+  <style>
+  </style>
+  <script>
+  $(function(){
+    //nombre de partie
+    var numberGames = 0;
+    //nombre de partie gagné
+    var numberWin = 0;
+    //pourcentage
+    var percentWin = 0;
+    $('#button').click(function(){
+      // 0 + 1
+      numberGames++;
+      var choiceBot = Math.floor(Math.random()*3)+1;
+      var myChoice = $('select').val();
+      if(choiceBot == myChoice){
+        alert('Equality');
+      }else if((choiceBot == 3 && myChoice == 2)||(choiceBot == 2 && myChoice == 1)||(choiceBot == 1 && myChoice == 3)){
+        alert('Lost');
+      }else{
+        //nombre de win + 1 a chaque partie gagné
+        numberWin++;
+        alert('Win');
+      }
+      // pourcetage nombre de gagné * 100 / numbre de partie
+      percentWin = numberWin*100/numberGames;
+      alert(percentWin + '%');
+    });
+  });
+  </script>
+</body>
+</html>

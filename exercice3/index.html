@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <title>Exercice 3</title>
+</head>
+  <body>
+    <input type="text" placeholder="Name" name="name" value="" id="name"><br/>
+    <input type="text" placeholder="Lastname" name="lastname" value="" id="lastname"><br/>
+    <input type="text" placeholder="Mail" name="mail" value="" id="mail"><br/>
+    <input type="text" placeholder="Number" name="number" value="" id="number"><br/>
+    <input type="submit" name="submit" value="Valider" id="valid">
+</body>
+<script>
+$('#valid').click(function(){
+   var  name = $('#name').val();
+   var  surname = $('#lastname').val();
+   var  mail = $('#mail').val();
+   var  phone = $('#number').val();
+   var myregexmail = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+   var myregexname = /^[a-zA-Z-]+$/;
+   console.log(myregexname.test(name));
+      if(myregexname.test(name) && myregexname.test(surname)){
+         alert('Bienvenu');
+      }
+   if(!myregexmail.test(mail))
+    {
+        alert('Mail not valid');
+    }
+   if(!isNaN(phone) == false)
+    {
+      alert('That\'s not a number');
+    }
+ });
+ </script>
+</html>

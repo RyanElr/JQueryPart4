@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice 4</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <label>Nom : </label><input type="text" placeholder="Nom" name="name" value="" id="name">
+    <label>Prénom : </label><input type="text" placeholder="Prénom" name="surname" value="" id="surname">
+    <label>Date de naissance : </label><input type="text" placeholder="Date de naissance" name="birthday" value="" id="birthday">
+    <label>Ville de naissance : </label><input type="text" placeholder="Ville" name="birthdaycity" value="" id="birthdaycity">
+    <label>Emploi : </label><input type="text" placeholder="Emploi" name="emploi" value="" id="emploi"><br>
+    <label>Société : </label><input type="text" placeholder="Société" name="society" value="" id="society">
+    <input type="submit" name="Valider" value="Valider" class="valid">
+    <p></p>
+    <script>
+      $('.valid').click(function(){
+         var name = $('#name').val();
+         var surname = $('#surname').val();
+         var birthday = $('#birthday').val();
+         var birthdaycity = $('#birthdaycity').val();
+         var emploi = $('#emploi').val();
+         var society = $('#society').val();
+        result = name + ' ' + surname + ' ,né le ' + birthday + ' à ' + birthdaycity + ' actuellement ' + emploi + ' à ' + society +' .';
+        $('p').text(result);
+        var myregexname = /[a-zA-Z-]/;
+        var myregexnumber = /^[0\/-9]+$/;
+          if(myregexname.test(name) && myregexname.test(surname) && myregexnumber.test(birthday) && myregexname.test(birthdaycity) && myregexname.test(emploi) && myregexname.test(society)){
+            alert('Bienvenu')
+          }
+          else{
+            alert('Please try again')
+          }
+      });
+    </script>
+  </body>
+</html>
